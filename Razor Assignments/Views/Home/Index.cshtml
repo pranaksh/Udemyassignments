@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Onlice Currency Denominations</h1>
+</div>
+
+<table class="container">
+    <thead class="thead-dark">
+    <tr class="container-fluid">
+        <th>Denomination</th>
+        <th>Count</th>
+        <th>Amount</th>
+    </tr>
+        </thead>
+    @foreach (var i in ViewBag.denom)
+    {
+    <tr class="container-fluid">
+        <td>@i</td>
+        @{
+            ViewBag.n = ViewBag.amount / i;
+            ViewBag.amount = ViewBag.amount % i;
+            ViewBag.k = ViewBag.n * i;
+         }
+        <td>@ViewBag.n</td>
+        <td>@ViewBag.k</td>
+    </tr>
+    }
+</table>
